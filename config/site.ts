@@ -7,49 +7,60 @@ export const siteConfig = {
     {
       label: "Dashboard",
       href: "/",
+      active: false,
     },
     {
       label: "Blox",
       href: "/blox",
+      active: false,
     },
     {
       label: "Categories",
       href: "/categories",
+      active: false,
     },
     {
       label: "Settings",
       href: "/settings",
+      active: false,
     },
     {
       label: "About",
       href: "/about",
+      active: false,
     },
 
   ],
   navMenuItems: [
     {
       label: "Dashboard",
-      href: "/dashboard",
+      href: "/",
+      active: false,
     },
     {
       label: "Blox",
       href: "/blox",
+      active: false,
     },
     {
       label: "Categories",
       href: "/categories",
+      active: false,
     },
     {
       label: "Settings",
       href: "/settings",
+      active: false,
     },
     {
       label: "About",
       href: "/about",
+      active: false,
     },
     {
       label: "Logout",
       href: "/logout",
+      active: false,
     },
   ],
   links: {
