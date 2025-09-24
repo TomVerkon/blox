@@ -1,6 +1,6 @@
 'use client';
 import {
-  Navbar as HeroUINavbar,
+  Navbar,
   NavbarContent,
   NavbarMenu,
   NavbarMenuToggle,
@@ -18,8 +18,13 @@ import { usePathname } from 'next/navigation';
 import { siteConfig } from '@/config/site';
 import { ThemeSwitch } from '@/components/theme-switch';
 import { SearchIcon, Logo } from '@/components/icons';
+import React from 'react';
 
-export function navbar() {
+export function BloxHeader() {
+  const [isMenuOpen, setIsMenuOpen] = React.useReducer(
+    (current) => !current,
+    false
+  );
   const searchInput = (
     <Input
       aria-label="Search"
@@ -38,7 +43,12 @@ export function navbar() {
   const pathname = usePathname();
 
   return (
-    <HeroUINavbar maxWidth="xl" position="sticky">
+    <Navbar
+      maxWidth="xl"
+      position="sticky"
+      isMenuOpen={isMenuOpen}
+      onMenuOpenChange={setIsMenuOpen}
+    >
       <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
         <NavbarBrand as="li" className="gap-3 max-w-fit">
           <NextLink className="flex justify-start items-center gap-1" href="/">
@@ -99,6 +109,7 @@ export function navbar() {
                   color={item.active ? 'primary' : 'foreground'}
                   href={item.href}
                   size="lg"
+                  onPress={() => setIsMenuOpen()}
                 >
                   {item.label}
                 </Link>
@@ -107,6 +118,6 @@ export function navbar() {
           })}
         </div>
       </NavbarMenu>
-    </HeroUINavbar>
+    </Navbar>
   );
 }
